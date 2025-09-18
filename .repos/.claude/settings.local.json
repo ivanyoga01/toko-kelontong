@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(./play-complete.sh)",
+      "Bash(ls:*)",
+      "Bash(test:*)",
+      "Bash(node:*)"
+    ]
+  },
+  "disabledMcpjsonServers": [
+    "playwright"
+  ],
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node SELF/BODY/COMPLETE_VOICE_HOOK_SCRIPT.js"
+          }
+        ]
+      }
+    ]
+  }
+}
