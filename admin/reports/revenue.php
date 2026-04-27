@@ -86,12 +86,12 @@ $prev_summary = fetchOne($prev_summary_sql, [$prev_date_from, $prev_date_to]);
 $revenue_growth = 0;
 $transaction_growth = 0;
 
-if ($prev_summary['total_pendapatan'] > 0) {
-    $revenue_growth = (($summary['total_pendapatan'] - $prev_summary['total_pendapatan']) / $prev_summary['total_pendapatan']) * 100;
+if (($prev_summary['total_pendapatan'] ?? 0) > 0) {
+    $revenue_growth = ((($summary['total_pendapatan'] ?? 0) - $prev_summary['total_pendapatan']) / $prev_summary['total_pendapatan']) * 100;
 }
 
-if ($prev_summary['total_transaksi'] > 0) {
-    $transaction_growth = (($summary['total_transaksi'] - $prev_summary['total_transaksi']) / $prev_summary['total_transaksi']) * 100;
+if (($prev_summary['total_transaksi'] ?? 0) > 0) {
+    $transaction_growth = ((($summary['total_transaksi'] ?? 0) - $prev_summary['total_transaksi']) / $prev_summary['total_transaksi']) * 100;
 }
 
 // Get payment method analysis (if you have payment_method field)
@@ -186,7 +186,7 @@ include '../../includes/sidebar.php';
                     <div class="card stats-card">
                         <div class="card-body text-center">
                             <i class="mdi mdi-currency-usd stats-icon"></i>
-                            <h3 class="stats-number"><?= formatCurrency($summary['total_pendapatan']) ?></h3>
+                            <h3 class="stats-number"><?= formatCurrency($summary['total_pendapatan'] ?? 0) ?></h3>
                             <h5 class="text-white">Total Pendapatan</h5>
                             <small class="text-white-50">
                                 <?= $revenue_growth >= 0 ? '+' : '' ?><?= number_format($revenue_growth, 1) ?>% dari periode sebelumnya
@@ -198,7 +198,7 @@ include '../../includes/sidebar.php';
                     <div class="card stats-card">
                         <div class="card-body text-center">
                             <i class="mdi mdi-cart stats-icon"></i>
-                            <h3 class="stats-number"><?= number_format($summary['total_transaksi']) ?></h3>
+                            <h3 class="stats-number"><?= number_format($summary['total_transaksi'] ?? 0) ?></h3>
                             <h5 class="text-white">Total Transaksi</h5>
                             <small class="text-white-50">
                                 <?= $transaction_growth >= 0 ? '+' : '' ?><?= number_format($transaction_growth, 1) ?>% dari periode sebelumnya
@@ -210,7 +210,7 @@ include '../../includes/sidebar.php';
                     <div class="card stats-card">
                         <div class="card-body text-center">
                             <i class="mdi mdi-calculator stats-icon"></i>
-                            <h3 class="stats-number"><?= formatCurrency($summary['rata_rata_transaksi']) ?></h3>
+                            <h3 class="stats-number"><?= formatCurrency($summary['rata_rata_transaksi'] ?? 0) ?></h3>
                             <h5 class="text-white">Rata-rata Transaksi</h5>
                         </div>
                     </div>
@@ -219,7 +219,7 @@ include '../../includes/sidebar.php';
                     <div class="card stats-card">
                         <div class="card-body text-center">
                             <i class="mdi mdi-trending-up stats-icon"></i>
-                            <h3 class="stats-number"><?= formatCurrency($summary['transaksi_tertinggi']) ?></h3>
+                            <h3 class="stats-number"><?= formatCurrency($summary['transaksi_tertinggi'] ?? 0) ?></h3>
                             <h5 class="text-white">Transaksi Tertinggi</h5>
                         </div>
                     </div>
@@ -306,11 +306,11 @@ include '../../includes/sidebar.php';
                                         <tfoot class="table-light">
                                             <tr>
                                                 <th>TOTAL</th>
-                                                <th><?= number_format($summary['total_transaksi']) ?></th>
-                                                <th class="currency"><?= formatCurrency($summary['total_pendapatan']) ?></th>
-                                                <th class="currency"><?= formatCurrency($summary['rata_rata_transaksi']) ?></th>
-                                                <th class="currency"><?= formatCurrency($summary['transaksi_terendah']) ?></th>
-                                                <th class="currency"><?= formatCurrency($summary['transaksi_tertinggi']) ?></th>
+                                                <th><?= number_format($summary['total_transaksi'] ?? 0) ?></th>
+                                                <th class="currency"><?= formatCurrency($summary['total_pendapatan'] ?? 0) ?></th>
+                                                <th class="currency"><?= formatCurrency($summary['rata_rata_transaksi'] ?? 0) ?></th>
+                                                <th class="currency"><?= formatCurrency($summary['transaksi_terendah'] ?? 0) ?></th>
+                                                <th class="currency"><?= formatCurrency($summary['transaksi_tertinggi'] ?? 0) ?></th>
                                             </tr>
                                         </tfoot>
                                     </table>

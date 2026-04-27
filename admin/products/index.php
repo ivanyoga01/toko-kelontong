@@ -359,8 +359,8 @@ include '../../includes/sidebar.php';
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="status">Status *</label>
-                                <select class="form-control" id="status" name="status" required>
+                                <label for="status_add">Status *</label>
+                                <select class="form-control" id="status_add" name="status" required>
                                     <option value="aktif">Aktif</option>
                                     <option value="nonaktif">Non-aktif</option>
                                 </select>

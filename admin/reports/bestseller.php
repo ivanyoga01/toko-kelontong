@@ -154,7 +154,7 @@ include '../../includes/sidebar.php';
                     <div class="card stats-card">
                         <div class="card-body text-center">
                             <i class="mdi mdi-cube-outline stats-icon"></i>
-                            <h3 class="stats-number"><?= number_format($stats['total_item_terjual']) ?></h3>
+                            <h3 class="stats-number"><?= number_format($stats['total_item_terjual'] ?? 0) ?></h3>
                             <h5 class="text-white">Total Item Terjual</h5>
                         </div>
                     </div>
@@ -163,7 +163,7 @@ include '../../includes/sidebar.php';
                     <div class="card stats-card">
                         <div class="card-body text-center">
                             <i class="mdi mdi-currency-usd stats-icon"></i>
-                            <h3 class="stats-number"><?= formatCurrency($stats['total_pendapatan']) ?></h3>
+                            <h3 class="stats-number"><?= formatCurrency($stats['total_pendapatan'] ?? 0) ?></h3>
                             <h5 class="text-white">Total Pendapatan</h5>
                         </div>
                     </div>
