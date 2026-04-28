@@ -115,7 +115,10 @@ include '../includes/sidebar.php';
                 <div class="row" id="products_grid">
                     <?php foreach ($products as $product): ?>
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-3 product-item" data-category="<?php echo $product['category_id']; ?>">
-                        <div class="card pos-item" onclick="addToCart(<?php echo $product['id']; ?>)">
+                        <div class="card pos-item" onclick="addToCart(<?php echo $product['id']; ?>)" 
+                             data-product-id="<?php echo $product['id']; ?>"
+                             data-product-name="<?php echo htmlspecialchars($product['nama_barang']); ?>"
+                             data-product-price="<?php echo $product['harga_jual']; ?>">
                             <div class="card-body text-center p-2">
                                 <?php if ($product['gambar']): ?>
                                     <img src="<?php echo UPLOADS_URL; ?>products/<?php echo $product['gambar']; ?>" alt="<?php echo htmlspecialchars($product['nama_barang']); ?>" class="img-fluid mb-2" style="height: 60px; object-fit: cover;">
@@ -322,10 +325,10 @@ include '../includes/sidebar.php';
 
     // Add to cart
     function addToCart(productId) {
-        // Find product data
-        let productCard = $(".product-item").find("[onclick*='" + productId + "']");
-        let productName = productCard.find(".card-title").text();
-        let productPrice = parseFloat(productCard.find(".text-success").text().replace(/[^0-9]/g, ""));
+        // Find product data from data attributes
+        let productCard = $(".product-item").find("[data-product-id='" + productId + "']");
+        let productName = productCard.data("product-name");
+        let productPrice = parseFloat(productCard.data("product-price"));
 
         // Check if already in cart
         let existingItem = cart.find(item => item.id === productId);

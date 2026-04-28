@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  
+  <!-- 404 Text -->
+  <g transform="translate(200, 120)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="80" fill="#e9ecef" text-anchor="middle" font-weight="bold">404</text>
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="80" fill="none" stroke="#6c757d" stroke-width="2" text-anchor="middle" font-weight="bold">404</text>
+  </g>
+  
+  <!-- Broken Link Icon -->
+  <g transform="translate(160, 160)">
+    <!-- Left chain link -->
+    <path d="M 0 10 Q -5 5 -5 0 Q -5 -5 0 -10" fill="none" stroke="#dc3545" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 0 10 Q 5 5 5 0 Q 5 -5 0 -10" fill="none" stroke="#dc3545" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Break indicator -->
+    <line x1="10" y1="0" x2="20" y2="0" stroke="#dc3545" stroke-width="2" stroke-dasharray="3,3"/>
+    
+    <!-- Right chain link -->
+    <g transform="translate(30, 0)">
+      <path d="M 0 10 Q -5 5 -5 0 Q -5 -5 0 -10" fill="none" stroke="#dc3545" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 0 10 Q 5 5 5 0 Q 5 -5 0 -10" fill="none" stroke="#dc3545" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- Warning Triangle -->
+  <g transform="translate(240, 165)">
+    <path d="M 0 -15 L 13 10 L -13 10 Z" fill="#ffc107" stroke="#f0ad4e" stroke-width="2"/>
+    <text x="0" y="6" font-family="Arial, sans-serif" font-size="16" fill="#212529" text-anchor="middle" font-weight="bold">!</text>
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="80" cy="220" r="4" fill="#dee2e6"/>
+  <circle cx="100" cy="230" r="3" fill="#dee2e6"/>
+  <circle cx="300" cy="220" r="4" fill="#dee2e6"/>
+  <circle cx="320" cy="230" r="3" fill="#dee2e6"/>
+  
+  <!-- Text -->
+  <text x="200" y="250" font-family="Arial, sans-serif" font-size="18" fill="#6c757d" text-anchor="middle" font-weight="600">
+    Halaman Tidak Ditemukan
+  </text>
+  <text x="200" y="275" font-family="Arial, sans-serif" font-size="14" fill="#adb5bd" text-anchor="middle">
+    Halaman yang Anda cari tidak tersedia
+  </text>
+</svg>
